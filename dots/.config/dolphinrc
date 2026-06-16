@@ -1,11 +1,18 @@
 [DetailsMode]
-PreviewSize=32
+PreviewSize=64
+
+[ExtractDialog]
+1920x1080 screen: Window-Maximized=true
 
 [General]
 GlobalViewProps=false
+LockPanels=false
 ShowFullPath=true
 ShowStatusBar=FullWidth
 Version=202
+
+[IconsMode]
+PreviewSize=128
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false
@@ -16,3 +23,6 @@ MenuBar=Disabled
 
 [PreviewSettings]
 Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,avif,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,heif,imagethumbnail,jpegthumbnail,jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,librsvg,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer,gsf-office
+
+[UiSettings]
+ColorScheme=BreezeDark

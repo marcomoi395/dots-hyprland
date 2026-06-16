@@ -32,3 +32,10 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR ANDROID_HOME:/home/ym/Android/Sdk
+SETUVAR ANDROID_SDK_ROOT:/home/ym/Android/Sdk
+SETUVAR --export CLAUDE_AUTO_ACCEPT:true
+SETUVAR __fish_webconfig_theme_notification:set\x2dtheme\x2dv1\x2d\x2316
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR fish_user_paths:/home/ym/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/ym/Android/Sdk/platform\x2dtools\x1e/home/ym/Android/Sdk/emulator\x1e/home/ym/\x2elocal/bin\x1e/home/ym/\x2ebun/bin\x1e/home/ym/miniconda3/bin
+SETUVAR --export nvm_default_version:22\x2e22\x2e2
