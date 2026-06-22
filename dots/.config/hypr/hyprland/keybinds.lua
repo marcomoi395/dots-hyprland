@@ -299,6 +299,7 @@ hl.bind(
 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
 	{ description = "Window: Fullscreen" }
 )
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "Window: Float/Tile" })
 hl.bind(
 	"SUPER + ALT + F",
 	hl.dsp.window.fullscreen_state({ internal = 0, client = 3, action = "toggle" }),
