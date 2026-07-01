@@ -80,7 +80,7 @@
       "workspaceZoom": 1
     },
     "thumbnailPath": "",
-    "wallpaperPath": "/home/ym/Wallpapers/Wallpapers/wallhaven-0pvxgp.jpg",
+    "wallpaperPath": "/home/ym/Wallpapers/wallhaven-213edy.png",
     "widgets": {
       "clock": {
         "cookie": {
@@ -225,9 +225,7 @@
     "hoverToReveal": true,
     "ignoredAppRegexes": [],
     "monochromeIcons": false,
-    "pinnedApps": [
-      "org.kde.dolphin"
-    ],
+    "pinnedApps": [],
     "pinnedOnStartup": false
   },
   "hacks": {
@@ -284,7 +282,7 @@
       "unlockKeyring": true
     },
     "showLockedText": true,
-    "useHyprlock": false
+    "useHyprlock": true
   },
   "media": {
     "filterDuplicatePlayers": true

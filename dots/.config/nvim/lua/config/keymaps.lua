@@ -107,6 +107,48 @@ keymap.set("n", "ggq", "<cmd>DiffviewClose<cr>", { desc = "Đóng Diffview" })
 -- keymap.set("n", "<leader>R", ":!python3 %<Return>", opts)
 keymap.set("n", "<leader>rr", ":RunCode<CR>", { noremap = true, silent = true })
 
+local leetcode_imports = {
+    List = "from typing import List",
+    Dict = "from typing import Dict",
+    Set = "from typing import Set",
+    Tuple = "from typing import Tuple",
+    Optional = "from typing import Optional",
+    defaultdict = "from collections import defaultdict",
+    deque = "from collections import deque",
+    Counter = "from collections import Counter",
+    heapq = "import heapq",
+    bisect = "import bisect",
+    math = "import math",
+    itertools = "import itertools",
+    functools = "import functools",
+}
+
+keymap.set("n", "<leader>cM", function()
+    if vim.bo.filetype ~= "python" then
+        return vim.lsp.buf.code_action({ apply = true, context = { only = { "source.addMissingImports" } } })
+    end
+
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local text = table.concat(lines, "\n")
+    local to_add = {}
+    for symbol, import_line in pairs(leetcode_imports) do
+        if text:find("%f[%w_]" .. symbol .. "%f[^%w_]", 1, false) and not text:find(import_line, 1, true) then
+            to_add[#to_add + 1] = import_line
+        end
+    end
+    table.sort(to_add)
+    if #to_add == 0 then
+        return
+    end
+
+    local insert_at = 0
+    while lines[insert_at + 1] and (lines[insert_at + 1]:match("^%s*#") or lines[insert_at + 1]:match("^%s*$") or lines[insert_at + 1]:match("^%s*import ") or lines[insert_at + 1]:match("^%s*from ")) do
+        insert_at = insert_at + 1
+    end
+    to_add[#to_add + 1] = ""
+    vim.api.nvim_buf_set_lines(0, insert_at, insert_at, false, to_add)
+end, { desc = "Add Python LeetCode imports" })
+
 -- -- Redo
 -- keymap.set('n', '<C-S-Z', 'C-r')
 -- keymap.set('i', '<C-S-Z', 'C-r')

@@ -12,4 +12,3 @@ hl.env("EDITOR", "nvim")
 
 hl.env("XCURSOR_THEME", "macOS")
 hl.env("XCURSOR_SIZE", "24")
-

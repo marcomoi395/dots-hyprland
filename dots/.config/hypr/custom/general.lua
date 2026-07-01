@@ -91,4 +91,3 @@ hl.animation({
 	style = "slidevert",
 })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 3, bezier = "standardDecel" })
-

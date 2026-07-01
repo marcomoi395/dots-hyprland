@@ -299,13 +299,14 @@ hl.bind(
 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
 	{ description = "Window: Fullscreen" }
 )
-hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "Window: Float/Tile" })
 hl.bind(
 	"SUPER + ALT + F",
 	hl.dsp.window.fullscreen_state({ internal = 0, client = 3, action = "toggle" }),
 	{ description = "Window: Fullscreen spoof" }
 )
 hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
+
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "Window: Float/Tile" })
 
 --#/# bind = SUPER+ALT, Hash,, -- Send to workspace -- (1, 2, 3,...)
 for i = 1, 10 do

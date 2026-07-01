@@ -1,1 +1,452 @@
-hl.bind("CTRL+SUPER+ALT+Slash", hl.dsp.exec_cmd("xdg-open ~/.config/hypr/custom/keybinds.lua"), {description = "Edit user keybinds"} )
+-- require("hyprland.lib")
+-- require("hyprland.variables")
+-- if is_file_exists(HOME .. "/.config/hypr/custom/variables.lua") then
+-- 	require("custom.variables")
+-- end
+--
+-- local qsScripts = "$HOME/.config/quickshell/$qsConfig/scripts"
+-- local hyprScripts = "$HOME/.config/hypr/hyprland/scripts"
+-- local qsIpcCall = "qs -c $qsConfig ipc call"
+-- local qsIsAlive = qsIpcCall .. " TEST_ALIVE"
+--
+-- hl.bind(
+-- 	"CTRL + SUPER + Slash",
+-- 	hl.dsp.exec_cmd("xdg-open $HOME/.config/illogical-impulse/config.json"),
+-- 	{ description = "User: Edit shell config" }
+
+-- hl.bind(
+-- 	"CTRL + SUPER + ALT + Slash",
+-- 	hl.dsp.exec_cmd("xdg-open $HOME/.config/hypr/custom/keybinds.conf"),
+-- 	{ description = "User: Edit extra keybinds" }
+-- )
+--
+-- hl.bind("SUPER + Space", hl.dsp.global("launcher"), { description = "Shell: Launcher" })
+-- hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"))
+-- hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"))
+--
+-- hl.bind("SUPER_L", hl.dsp.global("quickshell:workspaceNumber"), { ignore_mods = true, transparent = true })
+-- hl.bind("SUPER_R", hl.dsp.global("quickshell:workspaceNumber"), { ignore_mods = true, transparent = true })
+-- hl.bind(
+-- 	"SUPER_L",
+-- 	hl.dsp.global("quickshell:workspaceNumber"),
+-- 	{ ignore_mods = true, transparent = true, release = true }
+-- )
+-- hl.bind(
+-- 	"SUPER_R",
+-- 	hl.dsp.global("quickshell:workspaceNumber"),
+-- 	{ ignore_mods = true, transparent = true, release = true }
+-- )
+-- hl.bind("SUPER + V", hl.dsp.global("quickshell:overviewClipboardToggle"), { description = "Shell: Clipboard history" })
+-- hl.bind("SUPER + Period", hl.dsp.global("quickshell:overviewEmojiToggle"), { description = "Shell: Emoji picker" })
+-- hl.bind(
+-- 	"SUPER + A",
+-- 	hl.dsp.global("quickshell:overviewWorkspacesToggle"),
+-- 	{ description = "Shell: Toggle overview workspaces" }
+-- )
+-- hl.bind("SUPER + N", hl.dsp.global("quickshell:sidebarRightToggle"), { description = "Shell: Toggle right sidebar" })
+-- hl.bind("SUPER + M", hl.dsp.global("quickshell:mediaControlsToggle"), { description = "Shell: Toggle media controls" })
+-- hl.bind(
+-- 	"CTRL + ALT + Delete",
+-- 	hl.dsp.global("quickshell:sessionToggle"),
+-- 	{ description = "Shell: Toggle session menu" }
+-- )
+-- -- hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(qsIsAlive .. " || pkill wlogout || wlogout -p layer-shell"))
+-- hl.bind("SHIFT + SUPER + ALT + Slash", hl.dsp.exec_cmd("qs -p $HOME/.config/quickshell/$qsConfig/welcome.qml"))
+--
+-- hl.bind(
+-- 	"XF86MonBrightnessUp",
+-- 	hl.dsp.exec_cmd(qsIpcCall .. " brightness increment || brightnessctl s 5%+"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86MonBrightnessDown",
+-- 	hl.dsp.exec_cmd(qsIpcCall .. " brightness decrement || brightnessctl s 5%-"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86AudioRaiseVolume",
+-- 	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind(
+-- 	"XF86AudioLowerVolume",
+-- 	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),
+-- 	{ locked = true, repeating = true }
+-- )
+-- hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { locked = true })
+-- hl.bind(
+-- 	"SUPER + SHIFT + M",
+-- 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"),
+-- 	{ locked = true, description = "Media: Toggle mute" }
+-- )
+-- hl.bind("ALT + XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
+-- hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"), { locked = true })
+-- hl.bind(
+-- 	"SUPER + ALT + M",
+-- 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SOURCE@ toggle"),
+-- 	{ locked = true, description = "Media: Toggle mic" }
+-- )
+-- hl.bind(
+-- 	"SHIFT + SUPER + W",
+-- 	hl.dsp.global("quickshell:wallpaperSelectorToggle"),
+-- 	{ description = "Shell: Wallpaper selector" }
+-- )
+-- hl.bind(
+-- 	"CTRL + SUPER + ALT + T",
+-- 	hl.dsp.global("quickshell:wallpaperSelectorRandom"),
+-- 	{ description = "Shell: Random wallpaper" }
+-- )
+-- hl.bind(
+-- 	"CTRL + SUPER + R",
+-- 	hl.dsp.exec_cmd("killall ydotool qs quickshell; qs -c $qsConfig &"),
+-- 	{ description = "Shell: Restart widgets" }
+-- )
+-- hl.bind("CTRL + SUPER + P", hl.dsp.global("quickshell:panelFamilyCycle"), { description = "Shell: Cycle panel family" })
+-- hl.bind("SUPER + Tab", hl.dsp.global("quickshell:searchToggleRelease"), { description = "Shell: Toggle overview" })
+-- hl.bind("SUPER + Slash", hl.dsp.global("quickshell:cheatsheetToggle"), { description = "Shell: Toggle cheatsheet" })
+-- -- hl.bind("SUPER + K", hl.dsp.global("quickshell:oskToggle"),
+-- --     { description = "Shell: Toggle on-screen keyboard" })
+-- hl.bind("SUPER + B", hl.dsp.global("quickshell:sidebarLeftToggle"), { description = "Shell: Toggle left sidebar" })
+-- hl.bind("SUPER + O", hl.dsp.global("quickshell:sidebarLeftToggle"), { description = "Shell: Toggle left sidebar" })
+-- hl.bind(
+-- 	"SUPER + ALT + A",
+-- 	hl.dsp.global("quickshell:sidebarLeftToggleDetach"),
+-- 	{ description = "Shell: Detach left sidebar" }
+-- )
+--
+-- --##! Utilities
+-- --# Screenshot, Record, OCR, Color picker, Clipboard history
+-- -- hl.bind(
+-- -- 	"SUPER + V",
+-- -- 	hl.dsp.exec_cmd(
+-- -- 		qsIsAlive .. " || pkill fuzzel || cliphist list | fuzzel --match-mode fzf --dmenu | cliphist decode | wl-copy"
+-- -- 	),
+-- -- 	{ description = "Utilities: Clipboard history >> clipboard" }
+-- -- )
+-- -- hl.bind(
+-- -- 	"SUPER + Period",
+-- -- 	hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || " .. hyprScripts .. "/fuzzel-emoji.sh copy"),
+-- -- 	{ description = "Utilities: Emoji >> clipboard" }
+-- -- )
+-- hl.bind(
+-- 	"SUPER + SHIFT + S",
+-- 	hl.dsp.exec_cmd("pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent"),
+-- 	{ description = "Utilities: Screen snip" }
+-- )
+-- hl.bind(
+-- 	"Print",
+-- 	hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots"),
+-- 	{ description = "Utilities: Region screenshot to file" }
+-- )
+-- hl.bind(
+-- 	"SUPER + SHIFT + D",
+-- 	hl.dsp.exec_cmd('grim -g "$(slurp $SLURP_ARGS)" "tmp.png" && tesseract "tmp.png" - | wl-copy && rm "tmp.png"'),
+-- 	{ description = "Utilities: Character recognition" }
+-- )
+-- hl.bind(
+-- 	"SUPER + SHIFT + C",
+-- 	hl.dsp.exec_cmd("hyprpicker -a"),
+-- 	{ description = "Utilities: Pick color #RRGGBB >> clipboard" }
+-- )
+-- -- hl.bind(
+-- -- 	"Print",
+-- -- 	hl.dsp.exec_cmd("grim - | wl-copy"),
+-- -- 	{ locked = true, description = "Utilities: Screenshot >> clipboard" }
+-- -- )
+-- hl.bind(
+-- 	"CTRL + Print",
+-- 	hl.dsp.exec_cmd(
+-- 		"mkdir -p $(xdg-user-dir PICTURES)/Screenshots && grim $(xdg-user-dir PICTURES)/Screenshots/Screenshot_\"$(date '+%Y-%m-%d_%H.%M.%S')\".png"
+-- 	),
+-- 	{ locked = true, description = "Utilities: Screenshot >> clipboard & file" }
+-- )
+-- hl.bind(
+-- 	"SUPER + ALT + R",
+-- 	hl.dsp.exec_cmd(hyprScripts .. "/record.sh"),
+-- 	{ locked = true, description = "Utilities: Record region (no sound)" }
+-- )
+-- hl.bind("CTRL + ALT + R", hl.dsp.exec_cmd(hyprScripts .. "/record.sh --fullscreen"), { locked = true })
+-- hl.bind(
+-- 	"SUPER + SHIFT + ALT + R",
+-- 	hl.dsp.exec_cmd(hyprScripts .. "/record.sh --fullscreen-sound"),
+-- 	{ locked = true, description = "Utilities: Record screen (with sound)" }
+-- )
+-- hl.bind(
+-- 	"SUPER + SHIFT + T",
+-- 	hl.dsp.global("quickshell:screenTranslate"),
+-- 	{ description = "Utilities: Translate screen content" }
+-- )
+-- --# AI
+-- hl.bind(
+-- 	"SUPER + SHIFT + ALT + mouse:273",
+-- 	hl.dsp.exec_cmd(hyprScripts .. "/ai/primary-buffer-query.sh"),
+-- 	{ description = "Utilities: Generate AI summary for selected text" }
+-- )
+-- -- (requires a running ollama model)
+--
+-- --##! Screen
+-- --# Zoom
+-- local function zoomfunction(value)
+-- 	local zoomvalue = hl.get_config("cursor:zoom_factor")
+-- 	if (zoomvalue + value) > 3.0 then
+-- 		hl.config({ cursor = { zoom_factor = 3.0 } })
+-- 	elseif (zoomvalue + value) < 1.0 then
+-- 		hl.config({ cursor = { zoom_factor = 1.0 } })
+-- 	else
+-- 		hl.config({ cursor = { zoom_factor = zoomvalue + value } })
+-- 	end
+-- end
+-- hl.bind("SUPER + Minus", function()
+-- 	zoomfunction(-0.3)
+-- end, { repeating = true, description = "Screen: Zoom out" })
+-- hl.bind("SUPER + Equal", function()
+-- 	zoomfunction(0.3)
+-- end, { repeating = true, description = "Screen: Zoom in" })
+--
+-- --# Zoom with keypad
+-- hl.bind("SUPER + code:82", function()
+-- 	zoomfunction(-0.3)
+-- end, { repeating = true })
+-- hl.bind("SUPER + code:86", function()
+-- 	zoomfunction(0.3)
+-- end, { repeating = true })
+--
+-- --##! Media
+-- local mediaNextCommand =
+-- 	'playerctl next || playerctl position `bc <<< "100 * $(playerctl metadata mpris:length) / 1000000 / 100"`'
+-- hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(mediaNextCommand), { locked = true, description = "Media: Next track" })
+-- hl.bind("XF86AudioNext", hl.dsp.exec_cmd(mediaNextCommand), { locked = true })
+-- hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+-- hl.bind("SUPER + SHIFT + ALT + mouse:275", hl.dsp.exec_cmd("playerctl previous"))
+-- hl.bind("SUPER + SHIFT + ALT + mouse:276", hl.dsp.exec_cmd(mediaNextCommand))
+-- hl.bind(
+-- 	"SUPER + SHIFT + B",
+-- 	hl.dsp.exec_cmd("playerctl previous"),
+-- 	{ locked = true, description = "Media: Previous track" }
+-- )
+-- hl.bind(
+-- 	"SUPER + SHIFT + P",
+-- 	hl.dsp.exec_cmd("playerctl play-pause"),
+-- 	{ locked = true, description = "Media: Play/pause media" }
+-- )
+-- hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+-- hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+--
+-- --#!
+-- --##! Window
+-- --# Focusing
+-- hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Window: Move" })
+-- hl.bind("SUPER + mouse:274", hl.dsp.window.drag(), { mouse = true })
+-- hl.bind("SUPER + X", hl.dsp.window.resize(), { description = "Window: Resize" })
+--
+-- hl.bind("SUPER + H", hl.dsp.focus({ workspace = "r-1" }), { description = "Window: Previous workspace in row" })
+-- hl.bind("SUPER + L", hl.dsp.focus({ workspace = "r+1" }), { description = "Window: Next workspace in row" })
+-- hl.bind("SUPER + K", hl.dsp.focus({ workspace = "e-1" }), { description = "Window: Previous workspace in column" })
+-- hl.bind("SUPER + J", hl.dsp.focus({ workspace = "e+1" }), { description = "Window: Next workspace in column" })
+-- --
+-- Chuyển focus cửa sổ sang trái/phải/lên/dưới dựa trên hướng thay vì workspace
+-- hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }), { description = "Window: Focus left" })
+-- hl.bind("SUPER + L", hl.dsp.focus({ direction = "right" }), { description = "Window: Focus right" })
+-- hl.bind("SUPER + K", hl.dsp.focus({ direction = "up" }), { description = "Window: Focus up" })
+-- hl.bind("SUPER + J", hl.dsp.focus({ direction = "down" }), { description = "Window: Focus down" })
+--
+-- hl.bind("SUPER + BracketLeft", hl.dsp.focus({ direction = "l" }))
+-- hl.bind("SUPER + BracketRight", hl.dsp.focus({ direction = "r" }))
+--
+-- hl.bind("SUPER + SHIFT + Left", hl.dsp.window.move({ direction = "l" }))
+-- hl.bind("SUPER + SHIFT + Right", hl.dsp.window.move({ direction = "r" }))
+-- hl.bind("SUPER + SHIFT + Up", hl.dsp.window.move({ direction = "u" }))
+-- hl.bind("SUPER + SHIFT + Down", hl.dsp.window.move({ direction = "d" }))
+--
+-- hl.bind("ALT + F4", function()
+-- 	hl.exec_cmd('notify-send "Wrong close keybind" "Super+Q to close. Use Alt+F4 for Windows VMs" -a Hyprland')
+-- end, { non_consuming = true })
+-- hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Window: Close" })
+-- hl.bind("SUPER + SHIFT + ALT + Q", hl.dsp.exec_cmd("hyprctl kill"), { description = "Window: Forcefully zap a window" })
+--
+-- hl.bind("SUPER + Semicolon", hl.dsp.layout("splitratio -0.1"), { repeating = true })
+-- hl.bind("SUPER + Apostrophe", hl.dsp.layout("splitratio +0.1"), { repeating = true })
+-- hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), { description = "Window: Float/Tile" })
+-- hl.bind(
+-- 	"SUPER + F",
+-- 	hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
+-- 	{ description = "Window: Fullscreen" }
+-- )
+-- hl.bind(
+-- 	"SUPER + ALT + F",
+-- 	hl.dsp.window.fullscreen_state({ internal = 0, client = 3, action = "toggle" }),
+-- 	{ description = "Window: Fullscreen spoof" }
+-- )
+-- hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
+--
+-- for i = 1, 10 do
+-- 	hl.bind("SUPER + SHIFT + " .. (i % 10), function()
+-- 		hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
+-- 	end, { description = "Window: Send to workspace " .. i })
+-- end
+-- for i = 1, 10 do
+-- 	local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+-- 	hl.bind("SUPER + SHIFT + code:" .. numberkey[i], function()
+-- 		hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
+-- 	end)
+-- end
+-- for i = 1, 10 do
+-- 	local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
+-- 	hl.bind("SUPER + SHIFT + code:" .. numpadkey[i], function()
+-- 		hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
+-- 	end)
+-- end
+--
+-- hl.bind("SUPER + SHIFT + mouse_down", hl.dsp.window.move({ workspace = "r-1" }))
+-- hl.bind("SUPER + SHIFT + mouse_up", hl.dsp.window.move({ workspace = "r+1" }))
+-- hl.bind("SUPER + ALT + mouse_down", hl.dsp.window.move({ workspace = "-1" }))
+-- hl.bind("SUPER + ALT + mouse_up", hl.dsp.window.move({ workspace = "+1" }))
+-- hl.bind("SUPER + ALT + Page_Down", hl.dsp.window.move({ workspace = "+1" }))
+-- hl.bind("SUPER + ALT + Page_Up", hl.dsp.window.move({ workspace = "-1" }))
+-- hl.bind("SUPER + SHIFT + Page_Down", hl.dsp.window.move({ workspace = "r+1" }))
+-- hl.bind("SUPER + SHIFT + Page_Up", hl.dsp.window.move({ workspace = "r-1" }))
+-- hl.bind("CTRL + SUPER + SHIFT + Right", hl.dsp.window.move({ workspace = "r+1" }))
+-- hl.bind("CTRL + SUPER + SHIFT + Left", hl.dsp.window.move({ workspace = "r-1" }))
+--
+-- --##! Workspace
+-- --# Switching
+-- --#/# bind = SUPER, Hash,, -- Focus workspace -- (1, 2, 3,...)
+-- for i = 1, 10 do
+-- 	hl.bind("SUPER + " .. (i % 10), function()
+-- 		hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
+-- 	end, { description = "Workspace: Focus " .. i })
+-- end
+-- --# We also use raw keycodes because some keyboard layouts register number keys as different chars. The codes can be verified with `wev`
+-- for i = 1, 10 do
+-- 	local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+-- 	hl.bind("SUPER + code:" .. numberkey[i], function()
+-- 		hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
+-- 	end)
+-- end
+-- --# keypad numbers
+-- for i = 1, 10 do
+-- 	local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
+-- 	hl.bind("SUPER + code:" .. numpadkey[i], function()
+-- 		hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
+-- 	end)
+-- end
+--
+-- --#/# bind = CTRL+SUPER, ←/→,, -- Focus left/right
+-- --#/# bind = CTRL+SUPER+ALT, ←/→,, -- # [hidden] Focus busy left/right
+-- for i = 1, 2 do
+-- 	local keys = { "Left", "Right" }
+-- 	local prefix = { "r-", "r+" }
+-- 	local descdir = { "left", "right" }
+-- 	hl.bind(
+-- 		"CTRL + SUPER + " .. keys[i],
+-- 		hl.dsp.focus({ workspace = prefix[i] .. "1" }),
+-- 		{ description = "Workspace: Focus " .. descdir[i] }
+-- 	)
+-- end
+-- for i = 1, 2 do
+-- 	local keys = { "Left", "Right" }
+-- 	local prefix = { "m-", "m+" }
+-- 	hl.bind("CTRL + SUPER + ALT + " .. keys[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+-- end
+-- --#/# bind = SUPER, Page_↑/↓,, -- Focus left/right
+-- for i = 1, 4 do
+-- 	local key = { "SUPER + Page_Down", "SUPER + Page_Up" }
+-- 	local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
+-- 	local prefix = { "r+", "r-", "r+", "r-" }
+-- 	hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+-- end
+-- --#/# bind = SUPER, Scroll ↑/↓,, -- Focus left/right
+-- for i = 1, 4 do
+-- 	local key = { "SUPER + mouse_up", "SUPER + mouse_down" }
+-- 	local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
+-- 	local prefix = { "+", "-", "r+", "r-" }
+-- 	hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+-- end
+-- --## Special
+-- hl.bind("SUPER + mouse:275", hl.dsp.workspace.toggle_special("special"))
+-- hl.bind("CTRL + SUPER + BracketLeft", hl.dsp.focus({ workspace = "-1" }))
+-- hl.bind("CTRL + SUPER + BracketRight", hl.dsp.focus({ workspace = "+1" }))
+-- hl.bind("CTRL + SUPER + Up", hl.dsp.focus({ workspace = "r-5" }))
+-- hl.bind("CTRL + SUPER + Down", hl.dsp.focus({ workspace = "r+5" }))
+--
+-- --##! Virtual machines
+-- hl.define_submap("virtual-machine", function()
+-- 	hl.bind("SUPER + ALT + F1", function()
+-- 		local currentsubmap = hl.get_current_submap()
+-- 		if currentsubmap == "virtual-machine" then
+-- 			hl.dispatch(
+-- 				hl.dsp.exec_cmd("notify-send 'Exited Virtual Machine submap' 'Keybinds re-enabled' -a 'Hyprland'")
+-- 			)
+-- 			hl.dispatch(hl.dsp.submap("reset"))
+-- 		elseif currentsubmap == "" then
+-- 			hl.dispatch(
+-- 				hl.dsp.exec_cmd(
+-- 					"notify-send 'Entered Virtual Machine submap' 'Keybinds disabled. hit SUPER+ALT+F1 to escape' -a 'Hyprland'"
+-- 				)
+-- 			)
+-- 			hl.dispatch(hl.dsp.submap("virtual-machine"))
+-- 		end
+-- 	end, { submap_universal = true })
+-- end)
+--
+-- --#!
+-- --# Testing
+-- hl.bind(
+-- 	"SUPER + ALT + F11",
+-- 	hl.dsp.exec_cmd(
+-- 		'bash -c \'RANDOM_IMAGE=$(find ~/Pictures -type f | shuf -n 1); ACTION=$(notify-send "Test notification with body image" "This notification should contain your user account <b>image</b> and <a href=\\"https://discord.com/app\\">Discord</a> <b>icon</b>. Oh and here is a random image in your Pictures folder: <img src=\\"$RANDOM_IMAGE\\" alt=\\"Testing image\\"/>" -a "Hyprland" -p -h "string:image-path:/var/lib/AccountsService/icons/$USER" -t 6000 -i "discord" -A "openImage=Profile image" -A "action2=Open the random image" -A "action3=Useless button"); [[ $ACTION == *openImage ]] && xdg-open "/var/lib/AccountsService/icons/$USER"; [[ $ACTION == *action2 ]] && xdg-open "$RANDOM_IMAGE"\''
+-- 	)
+-- ) -- # [hidden]
+-- hl.bind(
+-- 	"SUPER + ALT + F12",
+-- 	hl.dsp.exec_cmd(
+-- 		'bash -c \'RANDOM_IMAGE=$(find ~/Pictures -type f | shuf -n 1); ACTION=$(notify-send "Test notification" "This notification should contain a random image in your <b>Pictures</b> folder and <a href=\\"https://discord.com/app\\">Discord</a> <b>icon</b>.\n<i>Flick right to dismiss!</i>" -a "Discord (fake)" -p -h "string:image-path:$RANDOM_IMAGE" -t 6000 -i "discord" -A "openImage=Profile image" -A "action2=Useless button"); [[ $ACTION == *openImage ]] && xdg-open "/var/lib/AccountsService/icons/$USER"\''
+-- 	)
+-- ) -- # [hidden]
+-- hl.bind(
+-- 	"SUPER + ALT + Equal",
+-- 	hl.dsp.exec_cmd("notify-send 'Urgent notification' 'Ah hell no' -u critical -a 'Hyprland keybind'")
+-- ) -- # [hidden]
+--
+-- --##! Session
+-- hl.bind("CTRL + SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"), { description = "Session: Lock" })
+-- hl.bind(
+-- 	"SUPER + SHIFT + L",
+-- 	hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"),
+-- 	{ locked = true, description = "Session: Sleep" }
+-- ) -- Sleep
+-- -- hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("systemctl suspend || loginctl suspend"), {locked = true} ) -- # [hidden] Suspend when laptop lid is closed, uncomment if for whatever reason it's not the default behavior
+--
+-- hl.bind(
+-- 	"CTRL + SHIFT + ALT + SUPER + Delete",
+-- 	hl.dsp.exec_cmd("systemctl poweroff || loginctl poweroff"),
+-- 	{ description = "Session: Shut down" }
+-- ) -- # [hidden] Power off
+--
+-- --##! Apps
+-- hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal), { description = "App: Terminal" })
+-- hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager), { description = "App: File manager" })
+-- -- hl.bind("SUPER + C", hl.dsp.exec_cmd("google-chrome-stable --ozone-platform=x11"), { description = "App: Browser" })
+-- hl.bind("SUPER + C", hl.dsp.exec_cmd("flatpak run com.google.Chrome"), { description = "App: Browser" })
+-- hl.bind(
+-- 	"SUPER + S",
+-- 	hl.dsp.exec_cmd(hyprScripts .. '/launch_first_available.sh "spotify"'),
+-- 	{ description = "App: Spotify" }
+-- )
+-- hl.bind(
+-- 	"SUPER + D",
+-- 	hl.dsp.exec_cmd(hyprScripts .. '/launch_first_available.sh "discord"'),
+-- 	{ description = "App: Discord" }
+-- )
+-- hl.bind("SHIFT + SUPER + A", hl.dsp.exec_cmd(volumeMixer), { description = "App: Volume mixer" })
+-- hl.bind("SUPER + I", hl.dsp.exec_cmd(settingsApp), { description = "App: Settings app" })
+-- hl.bind("CTRL + SHIFT + Escape", hl.dsp.exec_cmd(taskManager), { description = "App: Task manager" })
+-- hl.bind(
+-- 	"F12",
+-- 	hl.dsp.exec_cmd("google-chrome-stable https://gemini.google.com/u/1/app"),
+-- 	{ description = "App: Gemini" }
+-- )
+--
+-- --# Cursed stuff
+-- --## Make window not amogus large
+-- hl.bind("CTRL + SUPER + Backslash", hl.dsp.window.resize({ x = 640, y = 480, "exact" }))

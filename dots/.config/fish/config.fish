@@ -31,13 +31,14 @@ if status is-interactive # Commands to run in interactive sessions can go here
     # alias code nvim
     alias ws 'cd /run/media/ym/DATA/Workspace/'
     alias per 'cd /run/media/ym/DATA/Personal/'
-    alias lo 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-loyalty-v3/'
-    alias user 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-user-v3/'
-    alias gift 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-gift-v3/'
-    alias mi 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/'
-    alias worker 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-worker-v3'
-    alias import 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-import-v3'
+    # alias lo 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-loyalty-v3/'
+    # alias user 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-user-v3/'
+    # alias gift 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-gift-v3/'
+    # alias mi 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/'
+    # alias worker 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-worker-v3'
+    # alias import 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-import-v3'
     alias hera 'cd /run/media/ym/DATA/Personal/hera-flow/'
+    alias hefe 'cd /run/media/ym/DATA/Personal/hera-flow-frontend/'
 
     # omp
     alias oh 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'
@@ -48,9 +49,9 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias c clear
 
     #npm
-    alias ni 'pnpm install'
-    alias ns 'pnpm start'
-    alias nd 'pnpm run start:dev'
+    alias ni 'bun run install'
+    alias ns 'bun run start'
+    alias nd 'bun run dev'
     alias yd 'yarn run dev'
     alias ys 'yarn start'
 
@@ -141,4 +142,11 @@ function pm
     else
         echo "❌ Đù, không thấy file $report_path đâu hết ní ơi!"
     end
+end
+if status is-login
+    set -Ux GTK_IM_MODULE fcitx
+    set -Ux QT_IM_MODULE fcitx
+    set -Ux XMODIFIERS @im=fcitx
+    set -Ux SDL_IM_MODULE fcitx
+    set -Ux GLFW_IM_MODULE ibus
 end

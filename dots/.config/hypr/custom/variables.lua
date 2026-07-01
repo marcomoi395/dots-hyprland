@@ -1,1 +1,2 @@
-
+-- Migrated from legacy variables.conf to Hyprland Lua config
+-- This file intentionally contains no extra variables yet.

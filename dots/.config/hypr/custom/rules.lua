@@ -66,4 +66,3 @@ hl.layer_rule({
     match = { namespace = "quickshell:.*" },
     blur = true,
 })
-

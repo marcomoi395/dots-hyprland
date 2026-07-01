@@ -8,8 +8,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprctl setcursor macOS 24")
 	hl.exec_cmd("cliphist wipe")
 	hl.exec_cmd("imwheel -b 45")
-	-- hl.exec_cmd("bash -lc '/home/ym/.local/share/nvm/v22.22.2/bin/node $(command -v 9router)'")
+	hl.exec_cmd("docker start 9router")
 end)
 
 hl.permission("fcitx5-vmk-server", "keyboard", "allow")
-
