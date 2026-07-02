@@ -25,24 +25,17 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias oc opencode
     alias n touch
 
-    # 9router
-    # alias 9router 'nvm use v22.22.2 && command 9router'
-
     # alias code nvim
     alias ws 'cd /run/media/ym/DATA/Workspace/'
     alias per 'cd /run/media/ym/DATA/Personal/'
-    # alias lo 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-loyalty-v3/'
-    # alias user 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-user-v3/'
-    # alias gift 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-gift-v3/'
-    # alias mi 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/'
-    # alias worker 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-worker-v3'
-    # alias import 'cd /run/media/ym/DATA/Workspace/vtd-micro-v3/vtd-service-import-v3'
     alias hera 'cd /run/media/ym/DATA/Personal/hera-flow/'
     alias hefe 'cd /run/media/ym/DATA/Personal/hera-flow-frontend/'
 
     # omp
-    alias oh 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'
+    # alias oh 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'
+    alias omp 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'
     alias oh-review 'command omp --hook ~/.omp/agent/hooks/session-start-review.ts'
+    alias commit 'command omp commit'
 
     alias conf 'cd ~/.config'
     alias v 'nvim .'
