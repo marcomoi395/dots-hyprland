@@ -35,8 +35,8 @@
     },
     "transparency": {
       "automatic": false,
-      "backgroundTransparency": 0.5,
-      "contentTransparency": 0.5,
+      "backgroundTransparency": 0.85,
+      "contentTransparency": 0.2,
       "enable": true
     },
     "wallpaperTheming": {
@@ -80,7 +80,7 @@
       "workspaceZoom": 1
     },
     "thumbnailPath": "",
-    "wallpaperPath": "/home/ym/Wallpapers/wallhaven-213edy.png",
+    "wallpaperPath": "/home/ym/Wallpapers/Wallpapers/SnowMountains.jpg",
     "widgets": {
       "clock": {
         "cookie": {
