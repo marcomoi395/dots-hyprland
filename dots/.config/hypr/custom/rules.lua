@@ -9,7 +9,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "spotify-opacity",
-	match = { class = "^spotify$" },
+	match = { class = "^Spotify$" },
 	opacity = "0.9 override 0.9 override",
 })
 
@@ -28,7 +28,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "dolphin-opacity",
 	match = { class = "^org\\.kde\\.dolphin$" },
-	opacity = "0.8 override 0.8 override",
+	opacity = "0.9 override 0.9 override",
 })
 
 hl.window_rule({
