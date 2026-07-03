@@ -12,6 +12,17 @@ hl.window_rule({
 	match = { class = "^Spotify$" },
 	opacity = "0.9 override 0.9 override",
 })
+hl.window_rule({
+	name = "super-productivity-opacity",
+    match = { class = "^superproductivity-bin$" },
+	opacity = "0.9 override 0.9 override",
+})
+
+hl.window_rule({
+	name = "tableplus-opacity",
+	match = { class = "^[Tt]able[Pp]lus$" },
+	opacity = "0.9 override 0.9 override",
+})
 
 hl.window_rule({
 	name = "chrome-opacity",
