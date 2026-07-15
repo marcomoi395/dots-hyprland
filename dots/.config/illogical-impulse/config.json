@@ -80,7 +80,7 @@
       "workspaceZoom": 1
     },
     "thumbnailPath": "",
-    "wallpaperPath": "/home/ym/Wallpapers/Wallpapers/Frieren-4.jpg",
+    "wallpaperPath": "/home/ym/Wallpapers/Wallpapers/wallhaven-9omr8k.png",
     "widgets": {
       "clock": {
         "cookie": {
@@ -474,7 +474,9 @@
     "filterPassive": true,
     "invertPinnedItems": true,
     "monochromeIcons": true,
-    "pinnedItems": [],
+    "pinnedItems": [
+      "zero-trust-client"
+    ],
     "showItemId": false
   },
   "updates": {

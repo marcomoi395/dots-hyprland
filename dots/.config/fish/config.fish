@@ -30,7 +30,8 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias per 'cd /run/media/ym/DATA/Personal/'
     alias hera 'cd /run/media/ym/DATA/Personal/hera-flow/'
     alias hefe 'cd /run/media/ym/DATA/Personal/hera-flow-frontend/'
-    alias site 'cd /run/media/ym/DATA/Personal/hera-site-astro/'
+    alias site 'cd /run/media/ym/Data/Personal/hera-site/'
+    alias util 'cd /run/media/ym/DATA/Personal/utility-tools/'
 
     # omp
     # alias oh 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'
