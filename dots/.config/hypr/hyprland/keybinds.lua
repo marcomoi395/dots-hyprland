@@ -502,6 +502,13 @@ hl.bind(
 	hl.dsp.exec_cmd("flatpak run com.google.Chrome https://gemini.google.com/u/1/app"),
 	{ description = "App: Gemini" }
 )
+hl.bind(
+	"SUPER + P",
+	hl.dsp.exec_cmd(
+		"/home/ym/Applications/superProductivity-x86_64_647bd8e8aa953a6f00e93c71f7440857.AppImage --no-sandbox %U"
+	),
+	{ description = "App: Browser" }
+)
 
 -- Chuyển focus cửa sổ sang trái/phải/lên/dưới dựa trên hướng thay vì workspace
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }), { description = "Window: Focus left" })
