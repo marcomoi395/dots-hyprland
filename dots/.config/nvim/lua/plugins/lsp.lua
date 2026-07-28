@@ -2,18 +2,15 @@ return {
     {
         "neovim/nvim-lspconfig",
         opts = {
+            -- Disable duplicate Python LSP (keep only pyright from LazyVim extra)
             servers = {
                 pylsp = {
-                    settings = {
-                        pylsp = {
-                            plugins = {
-                                rope_autoimport = {
-                                    enabled = true,
-                                },
-                            },
-                        },
-                    },
+                    enabled = false, -- Disable to avoid conflict with pyright
                 },
+            },
+            -- Debounce diagnostics to reduce lag
+            diagnostics = {
+                update_in_insert = false, -- Don't update diagnostics while typing
             },
         },
     },

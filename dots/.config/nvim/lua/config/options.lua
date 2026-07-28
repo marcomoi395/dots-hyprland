@@ -7,6 +7,9 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
+-- Performance: Override LazyVim's aggressive updatetime (200ms → 800ms)
+vim.opt.updatetime = 800 -- Reduce LSP diagnostic frequency
+
 -- Disable persistent undo
 vim.opt.undofile = false
 

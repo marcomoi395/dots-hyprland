@@ -36,7 +36,13 @@ return {
         "saghen/blink.cmp",
         opts = {
             completion = {
-                documentation = { auto_show = false },
+                documentation = {
+                    auto_show = false,
+                    auto_show_delay_ms = 500, -- Delay doc popup
+                },
+            },
+            sources = {
+                min_keyword_length = 2, -- Require 2 chars before triggering
             },
         },
     },
