@@ -145,3 +145,5 @@ if status is-login
     set -Ux SDL_IM_MODULE fcitx
     set -Ux GLFW_IM_MODULE ibus
 end
+
+# direnv hook fish | source
