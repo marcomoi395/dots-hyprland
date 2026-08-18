@@ -50,6 +50,12 @@ hl.device({
 })
 
 hl.device({
+	name = "r1mouse2-mouse",
+	sensitivity = -0.5,
+	accel_profile = "flat",
+})
+
+hl.device({
 	name = "syna7db5:00-06cb:cea8-touchpad",
 	sensitivity = 0.2,
 	accel_profile = "adaptive",
