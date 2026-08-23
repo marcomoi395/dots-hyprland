@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+usage() {
+    cat <<'EOF'
+Usage: ./dualboot-setup [OPTIONS]
+
+Install os-prober, enable Windows detection in GRUB, regenerate grub.cfg,
+and configure the hardware clock for dual-boot with Windows.
+
+Options:
+  --localtime  Store the hardware clock as local time (default; Windows-compatible)
+  --utc        Store the hardware clock as UTC (recommended for Linux-only systems)
+  --yes        Do not ask for confirmation before changing system settings
+  -h, --help   Show this help
+EOF
+}
+
+rtc_mode=localtime
+assume_yes=false
+
+while (($#)); do
+    case "$1" in
+    --localtime) rtc_mode=localtime ;;
+    --utc) rtc_mode=utc ;;
+    --yes) assume_yes=true ;;
+    -h | --help)
+        usage
+        exit 0
+        ;;
+    *)
+        printf 'Unknown option: %s\n\n' "$1" >&2
+        usage >&2
+        exit 2
+        ;;
+    esac
+    shift
+done
+
+if [[ $EUID -eq 0 ]]; then
+    sudo_cmd=()
+else
+    sudo_cmd=(sudo)
+fi
+
+require_command() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        printf 'Required command not found: %s\n' "$1" >&2
+        exit 1
+    fi
+}
+
+confirm() {
+    if "$assume_yes"; then
+        return 0
+    fi
+
+    printf 'This will install os-prober, modify GRUB configuration, and change the hardware clock mode to %s. Continue? [y/N] ' "$rtc_mode"
+    read -r answer
+    [[ $answer =~ ^[Yy]([Ee][Ss])?$ ]]
+}
+
+require_command pacman
+require_command timedatectl
+
+if [[ ! -r /etc/os-release ]] || ! grep -q '^ID=\(arch\|endeavouros\|manjaro\)' /etc/os-release; then
+    printf 'This script supports Arch-based systems only.\n' >&2
+    exit 1
+fi
+
+if ! confirm; then
+    printf 'Aborted.\n'
+    exit 0
+fi
+
+printf 'Installing os-prober...\n'
+"${sudo_cmd[@]}" pacman -S --needed os-prober
+
+if [[ -f /etc/default/grub ]] && command -v grub-mkconfig >/dev/null 2>&1; then
+    grub_defaults=/etc/default/grub
+    backup_path="${grub_defaults}.bak.$(date +%Y%m%d-%H%M%S)"
+
+    printf 'Backing up %s to %s...\n' "$grub_defaults" "$backup_path"
+    "${sudo_cmd[@]}" cp -a "$grub_defaults" "$backup_path"
+
+    if grep -q '^GRUB_DISABLE_OS_PROBER=' "$grub_defaults"; then
+        "${sudo_cmd[@]}" sed -i 's/^GRUB_DISABLE_OS_PROBER=.*/GRUB_DISABLE_OS_PROBER=false/' "$grub_defaults"
+    else
+        printf '\nGRUB_DISABLE_OS_PROBER=false\n' | "${sudo_cmd[@]}" tee -a "$grub_defaults" >/dev/null
+    fi
+
+    printf 'Detecting operating systems...\n'
+    detected_os=$("${sudo_cmd[@]}" os-prober 2>/dev/null || true)
+    if [[ -n $detected_os ]]; then
+        printf '%s\n' "$detected_os"
+    else
+        printf 'Warning: os-prober did not detect another operating system.\n' >&2
+        printf 'Windows may be hibernated, encrypted, or its EFI partition may be unavailable.\n' >&2
+    fi
+
+    printf 'Regenerating GRUB configuration...\n'
+    "${sudo_cmd[@]}" grub-mkconfig -o /boot/grub/grub.cfg
+else
+    printf 'GRUB configuration was not found; os-prober was installed but GRUB was not updated.\n' >&2
+    printf 'If this system uses systemd-boot, os-prober does not create a boot entry automatically.\n' >&2
+fi
+
+printf 'Configuring the hardware clock for dual-boot...\n'
+if [[ $rtc_mode == localtime ]]; then
+    "${sudo_cmd[@]}" timedatectl set-local-rtc 1 --adjust-system-clock
+else
+    "${sudo_cmd[@]}" timedatectl set-local-rtc 0 --adjust-system-clock
+fi
+"${sudo_cmd[@]}" timedatectl set-ntp true
+
+printf '\nDual-boot setup completed. Current time configuration:\n'
+timedatectl status
