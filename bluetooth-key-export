@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+SOURCE_DIR=/var/lib/bluetooth
+
+usage() {
+    cat <<'EOF'
+Usage: sudo ./bluetooth-key-export
+
+Print Bluetooth pairing keys stored by BlueZ under /var/lib/bluetooth.
+The output is intended to be copied manually when synchronizing Linux and Windows.
+
+The script does not modify Bluetooth files or any system configuration. Values are
+printed exactly as stored by BlueZ; no byte-order or format conversion is performed.
+EOF
+}
+
+if (($# > 0)); then
+    case "$1" in
+    -h | --help)
+        usage
+        exit 0
+        ;;
+    *)
+        printf 'Unknown option: %s\n\n' "$1" >&2
+        usage >&2
+        exit 2
+        ;;
+    esac
+fi
+
+if [[ $EUID -ne 0 ]]; then
+    printf '%s\n' 'This script needs root access to read /var/lib/bluetooth.' >&2
+    printf '%s\n' 'Run it as: sudo ./bluetooth-key-export' >&2
+    exit 1
+fi
+
+if [[ ! -d $SOURCE_DIR ]]; then
+    printf 'Bluetooth data directory not found: %s\n' "$SOURCE_DIR" >&2
+    exit 1
+fi
+
+is_mac_address() {
+    [[ $1 =~ ^([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}$ ]]
+}
+
+print_key_sections() {
+    local info_file=$1
+    awk '
+        /^\[(LinkKey|IdentityResolvingKey|LongTermKey|SlaveLongTermKey|PeripheralLongTermKey|LocalSignatureKey|RemoteSignatureKey)\]$/ {
+            if (in_section) print ""
+            print
+            in_section = 1
+            found = 1
+            next
+        }
+        in_section && /^\[/ {
+            in_section = 0
+            next
+        }
+        in_section && /^(Key|Type|PINLength|EncSize|EDiv|Rand|Authenticated|Counter)=/ {
+            print
+        }
+        END {
+            if (found) exit 0
+            exit 1
+        }
+    ' "$info_file"
+}
+
+adapter_count=0
+device_count=0
+key_count=0
+
+printf '%s\n' '# BlueZ Bluetooth pairing keys'
+printf '%s\n' '# Values are copied verbatim from /var/lib/bluetooth.'
+printf '%s\n\n' '# Do not share this output; it contains authentication secrets.'
+
+for adapter_dir in "$SOURCE_DIR"/*; do
+    [[ -d $adapter_dir ]] || continue
+    adapter_mac=${adapter_dir##*/}
+    is_mac_address "$adapter_mac" || continue
+
+    adapter_count=$((adapter_count + 1))
+    for info_file in "$adapter_dir"/*/info; do
+        [[ -f $info_file ]] || continue
+        device_dir=${info_file%/info}
+        device_mac=${device_dir##*/}
+        is_mac_address "$device_mac" || continue
+
+        key_output=$(print_key_sections "$info_file" || true)
+        [[ -n $key_output ]] || continue
+
+        device_count=$((device_count + 1))
+        key_count=$((key_count + 1))
+        printf 'Adapter=%s\n' "$adapter_mac"
+        printf 'Device=%s\n' "$device_mac"
+        printf '%s\n\n' "$key_output"
+    done
+done
+
+if ((key_count == 0)); then
+    printf '%s\n' 'No supported Bluetooth key sections were found.' >&2
+    exit 1
+fi
+
+printf '# Found %d adapter(s), %d device(s) with key data.\n' "$adapter_count" "$device_count"
