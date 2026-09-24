@@ -26,13 +26,13 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias n touch
 
     # alias code nvim
-    alias ws 'cd /run/media/ym/DATA/Workspace/'
-    alias per 'cd /run/media/ym/DATA/Personal/'
-    alias hera 'cd /run/media/ym/DATA/Personal/hera-flow/'
-    alias hefe 'cd /run/media/ym/DATA/Personal/hera-flow-frontend/'
-    alias site 'cd /run/media/ym/DATA/Personal/hera-site/'
-    alias nest 'cd /run/media/ym/DATA/Personal/hera-nest/'
-    alias util 'cd /run/media/ym/DATA/Personal/utility-tools/'
+    alias ws 'cd /run/media/ym/DATA/workspace/'
+    alias per 'cd /run/media/ym/DATA/personal/'
+    alias hera 'cd /run/media/ym/DATA/personal/hera-flow/'
+    alias hefe 'cd /run/media/ym/DATA/personal/hera-flow-frontend/'
+    alias site 'cd /run/media/ym/DATA/personal/hera-site/'
+    alias nest 'cd /run/media/ym/DATA/personal/hera-nest/'
+    alias util 'cd /run/media/ym/DATA/personal/utility-tools/'
 
     # omp
     # alias oh 'command omp --hook ~/.omp/agent/hooks/load_rules.ts'

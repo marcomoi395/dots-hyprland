@@ -1,8 +1,13 @@
+MenuBar=Disabled
+
 [DetailsMode]
 PreviewSize=64
 
 [ExtractDialog]
 1920x1080 screen: Window-Maximized=true
+
+[FoldersPanel]
+HiddenFilesShown=true
 
 [General]
 GlobalViewProps=false
@@ -12,7 +17,7 @@ ShowStatusBar=FullWidth
 Version=202
 
 [IconsMode]
-PreviewSize=160
+PreviewSize=112
 
 [KFileDialog Settings]
 Places Icons Auto-resize=false

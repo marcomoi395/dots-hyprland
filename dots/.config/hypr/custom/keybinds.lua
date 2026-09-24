@@ -20,7 +20,7 @@
 -- 	{ description = "User: Edit extra keybinds" }
 -- )
 --
--- hl.bind("SUPER + Space", hl.dsp.global("launcher"), { description = "Shell: Launcher" })
+hl.bind("SUPER + Space", hl.dsp.global("quickshell:searchToggle"), { description = "Shell: Search" })
 -- hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"))
 -- hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd(qsIsAlive .. " || pkill fuzzel || fuzzel"))
 --

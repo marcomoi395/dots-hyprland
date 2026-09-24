@@ -3,29 +3,56 @@
 /home/ym/.config/darklyrc
 /home/ym/.config/dolphinrc
 /home/ym/.config/fish/auto-Hypr.fish
+/home/ym/.config/fish/completions/fisher.fish
+/home/ym/.config/fish/completions/nvm.fish
 /home/ym/.config/fish/config.fish
+/home/ym/.config/fish/fish_plugins
 /home/ym/.config/fish/fish_variables
+/home/ym/.config/fish/functions/fisher.fish
+/home/ym/.config/fish/functions/fish_prompt.fish
+/home/ym/.config/fish/functions/nvm.fish
+/home/ym/.config/fish/functions/_nvm_index_update.fish
+/home/ym/.config/fish/functions/_nvm_list.fish
+/home/ym/.config/fish/functions/_nvm_version_activate.fish
+/home/ym/.config/fish/functions/_nvm_version_deactivate.fish
+/home/ym/.config/fish/themes/Catppuccin Frappe.theme
+/home/ym/.config/fish/themes/Catppuccin Latte.theme
+/home/ym/.config/fish/themes/Catppuccin Macchiato.theme
+/home/ym/.config/fish/themes/Catppuccin Mocha.theme
 /home/ym/.config/fontconfig/fonts.conf
 /home/ym/.config/foot/foot.ini
 /home/ym/.config/fuzzel/fuzzel.ini
 /home/ym/.config/fuzzel/fuzzel_theme.ini
 /home/ym/.config/hypr/custom/env.conf
+/home/ym/.config/hypr/custom/env.lua
 /home/ym/.config/hypr/custom/execs.conf
+/home/ym/.config/hypr/custom/execs.lua
 /home/ym/.config/hypr/custom/general.conf
+/home/ym/.config/hypr/custom/general.lua
 /home/ym/.config/hypr/custom/keybinds.conf
+/home/ym/.config/hypr/custom/keybinds.lua
 /home/ym/.config/hypr/custom/rules.conf
+/home/ym/.config/hypr/custom/rules.lua
 /home/ym/.config/hypr/custom/scripts/__restore_video_wallpaper.sh
 /home/ym/.config/hypr/custom/variables.conf
+/home/ym/.config/hypr/custom/variables.lua
 /home/ym/.config/hypr/hypridle.conf
 /home/ym/.config/hypr/hypridle.conf.new
 /home/ym/.config/hypr/hyprland/colors.conf
+/home/ym/.config/hypr/hyprland/colors.lua
 /home/ym/.config/hypr/hyprland.conf
 /home/ym/.config/hypr/hyprland/env.conf
+/home/ym/.config/hypr/hyprland/env.lua
 /home/ym/.config/hypr/hyprland/execs.conf
+/home/ym/.config/hypr/hyprland/execs.lua
 /home/ym/.config/hypr/hyprland/general.conf
+/home/ym/.config/hypr/hyprland/general.lua
 /home/ym/.config/hypr/hyprland/keybinds.conf
+/home/ym/.config/hypr/hyprland/keybinds.lua
+/home/ym/.config/hypr/hyprland/lib/init.lua
 /home/ym/.config/hypr/hyprland.lua
 /home/ym/.config/hypr/hyprland/rules.conf
+/home/ym/.config/hypr/hyprland/rules.lua
 /home/ym/.config/hypr/hyprland/scripts/ai/license_show-loaded-ollama-models.txt
 /home/ym/.config/hypr/hyprland/scripts/ai/primary-buffer-query.sh
 /home/ym/.config/hypr/hyprland/scripts/ai/show-loaded-ollama-models.sh
@@ -35,8 +62,12 @@
 /home/ym/.config/hypr/hyprland/scripts/start_geoclue_agent.sh
 /home/ym/.config/hypr/hyprland/scripts/workspace_action.sh
 /home/ym/.config/hypr/hyprland/scripts/zoom.sh
+/home/ym/.config/hypr/hyprland/services/create_custom_config.lua
+/home/ym/.config/hypr/hyprland/services/init.lua
 /home/ym/.config/hypr/hyprland/shellOverrides/main.conf
+/home/ym/.config/hypr/hyprland/shellOverrides/main.lua
 /home/ym/.config/hypr/hyprland/variables.conf
+/home/ym/.config/hypr/hyprland/variables.lua
 /home/ym/.config/hypr/hyprlock.conf
 /home/ym/.config/hypr/hyprlock.conf.new
 /home/ym/.config/hypr/monitors.conf
@@ -940,6 +971,7 @@
 /home/ym/.config/quickshell/ii/services/GlobalFocusGrab.qml
 /home/ym/.config/quickshell/ii/services/GoogleCloud.qml
 /home/ym/.config/quickshell/ii/services/hyprlandAntiFlashbangShader/anti-flashbang.glsl
+/home/ym/.config/quickshell/ii/services/hyprlandAntiFlashbangShader/anti-flashbang-weak.glsl
 /home/ym/.config/quickshell/ii/services/HyprlandAntiFlashbangShader.qml
 /home/ym/.config/quickshell/ii/services/HyprlandConfig.qml
 /home/ym/.config/quickshell/ii/services/HyprlandData.qml
